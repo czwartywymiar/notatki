@@ -1,0 +1,11 @@
+# Wyświetlanie numerów linii
+:set number
+:set nonumber
+
+# Szukanie
+/Szukana_fraza
+n - dalej
+N - poprzedni
+
+# 
+
