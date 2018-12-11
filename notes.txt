@@ -1,0 +1,252 @@
+Krita - przetestować program do rysowania na linuxie :)
+
+Pomysły na aplikacje / skrypty
+- Pogoda w i3blocks
+- Maile w i3blocks (różne konta)
+- Włączanie / wyłączanie monitorów / ekranów
+- Przełączanie pomiędzy językami (input) podobnie jak w Windows + wyświetlanie powiadomienia jaki aktualnie język jest wspierany
+- Za każdym razem inne przywitanie w konsoli z jakimiś dodatkowymi informacjami :)
+
+Aplikacje:
+
+orage - kalendarz xfce4
+scrot - screenshoty
+ranger - manadzer plikow
+nitrogen - manadzer tapet
+guake - konsola a'la quake
+mtr - śledzenie trasy pakietów
+tmux - podział konsoli i zapisywanie sesji
+ncmpcpp - odtwarzacz muzyki
+irssi - kanały IRC
+htop - śledzenie zużycia zasobów systemu
+
+
+! Wyświetlanie pozostałego miejsca na dysku
+> df -h 
+
+##################
+### PENTESTING ###
+##################
+
+unicornscan
+arp-scan
+netdiscover
+nmap
+openvas
+metasploit
+searchsploit
+traceroute
+aircrack-ng
+
+######################################################
+###   Większa rozdzielczość konsoli (dla CentOS)   ###
+###   I tradycyjne interfejsy			   ###
+######################################################
+
+> vim /etc/default/grub
+> GRUB_CMDLINE_LINUX_DEFAULT="nomodeset vga=0x317 net.ifnames=0 biosdevname=0 rhgb quiet"
+
+! nomodeset vga=0x317		# ustawienie rozdzielczości tekstu konsoli
+! net.ifnames=0 biosdevname=0		# ustawienie starych nazw dla interfejsów w stylu ethX	
+
+> grub2-mkconfig -o /boot/grub2/grub.cfg
+
+###################
+###	IRSSI   ###
+###################
+
+! Wyłączanie 
+/ignore -channels #channel * JOINS PARTS QUITS NICKS
+/ignore -channels #archlinux * JOINS PARTS QUITS NICKS
+
+##############################
+### CONFIG FILES TO BACKUP ###
+##############################
+
+/etc/systemd/system/numlock.service
+/usr/local/bin/numlock
+~/.config/ranger/ (cały folder)
+~/.config/i3/ (cały folder)
+~/.config/compton.conf
+~/.config/dunst (cały folder)
+~/.Xresources
+~/.bashrc
+~/.bash_profile
+~/.mpd/ (cały folder)
+~/.ncmpcpp/ (cały folder)
+~/notes.txt (ten plik)
+~/.vimrc
+~/.xinitrc
+
+
+###################################################
+##### Robienie screenshotów z pomocą scrot'a ######
+###################################################
+scrot  -s 	#screenshot okna lub można też zaznaczyć region
+
+ranger:
+	yy - kopiowanie
+	pp - wklejanie
+	dd - wycinanie
+	:delete (jak w vim) usuwanie zaznaczonych plików
+	/ szukanie w folderze (wystarczą pierwsze litery)
+
+######################################
+##### Tworzenie bootowalnego USB #####
+######################################
+
+dd bs=4M if=/path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync
+
+###################################
+###	scp - upload/download	###  
+###################################
+
+! Jeśli nie da się skopiować pliku to bardzo prawdopodobne, że w konsoli jest wyświetlany jakiś tekst przy połączeniu (a nie powinien, aby 'scp' działało)
+
+scp <źródło> <docelowe>
+scp Download/plik.zip root@bunkier.pl:nazwa_na_serwerze
+scp -r user@server:/path/to/dir /Local/Target/Destination
+
+##################################
+###	Tworzenie użytkownika  ###
+##################################
+
+! ArchLinux (najlepsza)
+useradd -m -g <groups> -s /bin/bash <user> 	// Grupy mogą być sudo (ubuntu) - root przez sudo, users (standardowa) lub wheel (archlinux,centos) administracyjna
+passwd <user>
+
+! UBUNTU 16.04
+useradd <user>
+usermod -aG sudo <user>
+
+! CentOS 7
+useradd <user>
+passwd <user>
+	type pw: 
+usermod -aG wheel username	// wheel - administracja
+
+! Inne
+Tworzenie folderu home dla użytkownika i naprawianie uprawnień
+
+mkdir /home/<user>
+usermod --shell /bin/bash --home /home/<user> <user>
+chown -R <user>:<user> /home/<user>
+cp /etc/skel/* /home/<user>/
+
+su - <username> 	// logowanie się na konto tego użytkownika
+
+
+###########################################
+###	Tworzenie SWAP na serwerze	###
+###########################################
+
+! CentOS 7
+
+sudo fallocate -l 4G /swapfile
+
+lub jeśli nie działa
+
+sudo dd if=/dev/zero of=/swapfile bs=1024 count=1048576
+
+Ustawianie odpowiednich uprawnień
+
+sudo chmod 600 /swapfile
+
+Formatowanie
+
+sudo mkswap /swapfile
+
+Włączanie swap
+
+sudo swapon /swapfile
+
+Dopisanie do fstab (żeby przy uruchomieniu systemu od razu montował partycję swap)
+W /etc/fstab
+
+/swapfile swap swap defaults 0 0
+
+Sprawdzanie czy swap działa
+
+sudo swapon --show
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NAME      TYPE  SIZE   USED PRIO
+/swapfile file 1024M 507.4M   -1
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+sudo free -h
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+             total        used        free      shared  buff/cache   available
+Mem:           488M        158M         83M        2.3M        246M        217M
+Swap:          1.0G        506M        517M
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+####################
+###   CentOS 7   ###
+####################
+
+yum --enablerepo=extras install nazwa_paczki
+
+
+####################
+###   Firewall   ###
+####################
+
+sudo firewall-cmd --zone=public --add-service=http --permanent
+sudo firewall-cmd --zone=public --add-port=12345/tcp --permanent
+
+
+###############
+###   GIT   ###
+###############
+! Zwykły commit
+> git commit -m "Wiadomość commit'a"
+
+> git push ;)
+> git push origin master
+
+! Usuwanie plików z git'a wraz z poprzednimi commitami
+> git rm -r --cached [filename]	# bez -r jeśli jest to pojedynczy plik
+
+! Tworzenie user'a (nie globalnego) dla pojedynczego repozytorium
+git config user.name = "username"
+git config user.email = "email@domain.com"
+
+! Tworzenie globalnego user'a
+git config --global user.name = "username"
+git config --global user.email = "adres@domain.com"
+
+
+#################
+###   WACOM   ###
+#################
+
+!! Mapowanie tabletu tylko na jeden monitor
+! Wykrywanie urządzeń
+> xrandr 	# jakie monitory gdzie do czego podpięte i jak się nazywają
+
+> xsetwacom list devices 
+
+! Po odczytaniu ID, można ustawić mapowanie tabletu
+> xsetwacom set 12 MapToOutput HDMI-1
+
+
+##################
+###   PACMAN   ###
+##################
+
+! Jeśli jest problem z kluczami GPG etc. to trzeba sprawdzić ważność kluczy 
+> pacman -Q archlinux-keyring
+
+! Jeśli występuje konflikt z paczkami to można to rozwiązać na kilka sposobów
+! Ale najprostszy to wydupić przeszkadzającą paczkę
+> sudo rm /ścieżka/do/głupiej/paczki
+! I dalej to już tylko ponowić upgrade
+> sudo pacman -Syu
+
+! Czyszczenie cache
+pacman -Sc
+
+! Lista OSTATNIO zaktualizowanych paczek
+> cat /var/log/pacman.log | grep -i installed

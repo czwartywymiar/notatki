@@ -1,0 +1,64 @@
+##-- 1. NetworkManager, dhclient, dhcpcd, wpa_supplicant etc. - Laczenie z sieciami przez applet, albo w jakis rozsadny sposob (Automatycznie się łączy - w sensie manualna konfiguracja jest)
+##-- 2. Uruchamianie aplikacji przy uruchomieniu i3:
+	- 2 konsole na ws1 (workspace 1)
+	- htop, alsamixer i ncmpcpp na ws10
+	- ranger
+##-- 3. Dzialajacy touchpad
+4. Skrypt do backup'ow (in progress :))
+5. K-OS notatki co, jak i gdzie w systemie.
+##-- 6. Ranger - wyswietlanie obrazkow w konsoli
+# 7. Konsolowe przegladanie obrazow (osobno - nie w FM)
+8. Zmienic i dostosowac wszystkie skrypty w i3blocks
+9. Sprawdzic czy skrypty dzialaja prawidlowo
+##-- 11. YouCompleteMe - zainstalowac dla Vim C++ (zainstalowałem neovim [nvim] i powinno wystarczyć)
+##-- 12. Znalezc sposob na konfiguracje "na stale" programu htop (zapisuje się sam, tylko plik konfiguracyjny musi mieć odpowiednie uprawnienia, czyli nie należeć do root'a)
+##-- 13. Globalne ustawianie dzwieku w alsamixer
+##-- 14. Kolorowanie skladni w vim? (jest w c++)
+##-- 15. Skroty klawiszowe w i3:
+	# ranger
+	# ncmpcpp
+	# alsamixer
+	##-- - volume up & down
+##-- 16. Skroty klawiszowe w ncmpcpp (sprawdzic czy na pewno wszystkie sa dobrze)
+##-- 17. Skroty klawiszowe w alsamixer - zmienic na takie odpowiadajace Vim
+##-- 18. Skroty klawiszowe w Ranger - dostosowac pod siebie np. programowanie w folderze dropbox
+##-- 19. Aliasy do programow (od tego jest rofi)
+##-- 20. "Ekran powitalny" po zalogowaniu informujacy o systemie (zainstalowany neofetch)
+##-- 22. Poprawic kolorystyke i3:
+	- Ramki maja nieodpowiedni kolor (tzw. focus)
+	- Chromium jest ciagle przezroczyste (wylaczyc to albo co - sam nie wiem juz co i jak)
+	- Mousepad ma niepasujaca kolorystyke do i3
+	- Podkrecic lekko czerwony i zielony
+##-- 23. Zmienianie rozmiaru czcionki w konsoli w "locie"
+##-- 24. Kopiowanie z konsoli do przegladarki
+##-- 25. Kopiowanie z przegladarki do konsoli
+26. Sleep / suspend
+##-- 27. Rozmazany Lockscreen
+##-- 28. Notification area (ladne cos jakies)
+##-- 29. Motyw rofi zgodny z reszta systemu
+30. Bardziej dopasowac wyglad systemu
+31. Skonfigurowac ranger'a tak, zeby mial odnosniki do najczesciej uzywanych folderow, programów i w ogóle nauczyc sie go prawidłowo obsługiwać 
+##-- 33. Skonfigurowac DUNST
+34. i3lock po kilku minutach
+##-- 35. Dzialajacy dropbox 
+##-- 36. Powiadomienia takie jak zmiana glosnosci powinny wyswietlac poziom glosnosci itp. Pauza/Play/Stop/Calc 
+##-- 37. Polskie znaki
+38. Theme dla Vim'a tak żeby dało się wyświetlać kolorowe teksty w notatkach.
+##-- 39. Zrobić działające powiadomienia (bo DUNST się zjebał i przestał nagle działać...)
+##-- 40. Wyłączyć dźwięk pikającego głośnika biosu
+##-- 41. Globalne przyciski multimediow
+##-- 42. Automatyczne uruchamiania dropbox przy starcie systemu
+43. Wyłączanie sesji X bez potrzeby użycia klawiatury (skrypt dla i3)
+##-- 44. Skonfigurować COMPTON
+##-- 45. Wyświetlanie czasu i DATY
+46. Przyciski multimedialne - przypisać do nich odpowiednie programy (część działa)
+47. Wiele workspace'ów. Przynajmniej 2 x 10, lub po 10 na każdy monitor
+48. GRAFIKA: 
+	* Przetestować Krita - oprogramowanie do rysowania na linuxa (coś innego niż Gimp)
+	* RawTherapee - program do obróbki RAW'ów
+	* Darktable - j.w.
+49. Nauczyć się Gimp'a i porównać do Photoshop'a
+	# Retusz zdjęć
+	# Rysowanie
+	# Obróbka fotek
+	# Photomanipulacje
