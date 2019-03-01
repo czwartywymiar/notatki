@@ -1,14 +1,3 @@
-Krita - przetestować program do rysowania na linuxie :)
-
-Pomysły na aplikacje / skrypty
-- Pogoda w i3blocks
-- Maile w i3blocks (różne konta)
-- Włączanie / wyłączanie monitorów / ekranów
-- Przełączanie pomiędzy językami (input) podobnie jak w Windows + wyświetlanie powiadomienia jaki aktualnie język jest wspierany
-- Za każdym razem inne przywitanie w konsoli z jakimiś dodatkowymi informacjami :)
-
-Aplikacje:
-
 orage - kalendarz xfce4
 scrot - screenshoty
 ranger - manadzer plikow
